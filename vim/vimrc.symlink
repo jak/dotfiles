@@ -19,6 +19,8 @@ Plugin 'vim-scripts/The-NERD-tree'
 Plugin 'mileszs/ack.vim'
 Plugin 'rizzatti/dash.vim'
 
+" Theme
+Bundle 'lsdr/monokai'
 
 " Ruby/Rails
 Plugin 'tpope/vim-bundler'
