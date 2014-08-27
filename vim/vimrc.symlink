@@ -1,4 +1,167 @@
+" use vim, not vi api
+set nocompatible
+filetype off
+set rtp+=$HOME/.vim/bundle/vundle
+call vundle#begin()
+Plugin 'gmarik/vundle'
+
+" ALL OF THE ABOVE IS ALSO REQUIRED
+" FOR SUCCESSFUL VUNDLE INSTALL
+" THE FOLLOWING IS NEW FOR US…
+
+" Editor tools
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-scripts/The-NERD-tree'
+Plugin 'mileszs/ack.vim'
+Plugin 'rizzatti/dash.vim'
+
+
+" Ruby/Rails
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-rails'
+
+" HTML
+Plugin 'mattn/emmet-vim'
+
+" Generic
+Plugin 'SirVer/ultisnips'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-commentary'
+Plugin 'honza/vim-snippets'
+
+" Javascript
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'burnettk/vim-angular'
+Plugin 'matthewsimo/angular-vim-snippets'
+
+call vundle#end()
+filetype plugin indent on
+
+" map \y to the CtrlPBuffer
+map <leader>y :CtrlPBuffer<cr>
+
+" switch syntax highlighting on, when the terminal has colors
 syntax on
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+" no backup files
+set nobackup
+
+" no write backup
+set nowritebackup
+
+" no swap file
+set noswapfile
+
+" command history
+set history=100
+
+" always show cursor
+set ruler
+
+" show incomplete commands
+set showcmd
+
+" incremental searching
+set incsearch
+
+" highlight search
+set hlsearch
+
+" ignore case in search
+set smartcase
+
+" clear search buffer
+:nnoremap § :nohlsearch<cr>
+
+" make sure undo history is kept for files in buffer.
+set hidden
+
+" turn indentation on
+filetype indent on
+
+" enable filetype plugins
+filetype plugin on
+
+" disable folding because it is evil
+set nofoldenable
+
+" turn word wrap off
+set nowrap
+
+" scroll with more context
+set scrolloff=10
+
+" allow backspace to delete end of line, indent and start of line characters
+set backspace=indent,eol,start
+
+" convert tabs to spaces
+set expandtab
+
+" set tab size
+set tabstop=2
+
+" the number of spaces inserted for a tab
+set shiftwidth=2
+
+" turn on line numbers
+set number
+
+" highlight tailing whitespace
+set list listchars=tab:\ \ ,trail:·
+
+" get rid of the delay when pressing O (for example)
+" http://stackoverflow.com/questions/2158516/vim-delay-before-o-opens-a-new-line
+set timeout timeoutlen=1000 ttimeoutlen=100
+
+" always show status bar
+set laststatus=2
+
+" set the status line to something useful
+set statusline=%f\ %=L:%l/%L\ %c\ (%p%%)
+
+" hide the toolbar
+set guioptions-=T
+
+" utf encoding
+set encoding=utf-8
+
+" autoload files that have changed outside of vim
+set autoread
+
+" jump to last cursor
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+\   exe "normal g`\"" |
+\ endif
+
+" set-up ctrlp to include hidden files in its search
+let g:ctrlp_show_hidden=1
+
+" disable ctrlp's feature where it tries to intelligently work out the current working directory to search within
+let g:ctrlp_working_path_mode=0
+
+" don't let ctrlp take over the screen!
+let g:ctrlp_max_height=30
+
+" lets make sure we don't show these files
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*.,*/.DS_Store
+
+" remove whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+" shortcuts for changing buffer
+nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>f :bn<CR>
+
+" Show a buffer list
+let g:airline#extensions#tabline#enabled = 1
+
+" Mouse
+set mouse=nicr
+
