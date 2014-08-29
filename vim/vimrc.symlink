@@ -13,6 +13,7 @@ Plugin 'gmarik/vundle'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-scripts/The-NERD-tree'
@@ -105,10 +106,10 @@ set backspace=indent,eol,start
 set expandtab
 
 " set tab size
-set tabstop=2
+set tabstop=4
 
 " the number of spaces inserted for a tab
-set shiftwidth=2
+set shiftwidth=4
 
 " turn on line numbers
 set number
@@ -167,3 +168,24 @@ let g:airline#extensions#tabline#enabled = 1
 " Mouse
 set mouse=nicr
 
+" Reveal in Finder
+function! s:RevealInFinder()
+  if filereadable(expand("%"))
+    let l:command = "open -R %"
+  elseif getftype(expand("%:p:h")) == "dir"
+    let l:command = "open %:p:h"
+  else
+    let l:command = "open ."
+  endif
+  execute ":silent! !" . l:command
+ " For terminal Vim not to look messed up.
+ redraw!
+endfunction
+command! Reveal call <SID>RevealInFinder()
+nmap <Leader>r :Reveal<CR>
+
+" My project is too big for Ctrl P default settings
+let g:ctrlp_max_files=0
+
+" Need a quick method to run grunt sync
+nmap <Leader>s :!grunt sync<CR>
