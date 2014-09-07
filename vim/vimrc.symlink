@@ -19,6 +19,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'vim-scripts/The-NERD-tree'
 Plugin 'mileszs/ack.vim'
 Plugin 'rizzatti/dash.vim'
+Plugin 'vim-scripts/BufOnly.vim'
 
 " Theme
 Bundle 'lsdr/monokai'
@@ -150,6 +151,9 @@ let g:ctrlp_working_path_mode=0
 
 " don't let ctrlp take over the screen!
 let g:ctrlp_max_height=30
+
+" keep ctrl-p cache between sessions
+let g:ctrlp_clear_cache_on_exit = 1
 
 " lets make sure we don't show these files
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*.,*/.DS_Store
