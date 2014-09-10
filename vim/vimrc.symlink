@@ -20,6 +20,9 @@ Plugin 'vim-scripts/The-NERD-tree'
 Plugin 'mileszs/ack.vim'
 Plugin 'rizzatti/dash.vim'
 Plugin 'vim-scripts/BufOnly.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'docunext/closetag.vim'
+Plugin 'majutsushi/tagbar'
 
 " Theme
 Bundle 'lsdr/monokai'
@@ -193,3 +196,7 @@ let g:ctrlp_max_files=0
 
 " Need a quick method to run grunt sync
 nmap <Leader>s :silent !grunt sync<CR>
+
+" Tagbar plugin
+let g:tagbar_usearrows = 1
+nnoremap <leader>l :TagbarToggle<CR>
