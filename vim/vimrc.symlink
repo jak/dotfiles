@@ -23,6 +23,7 @@ Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'docunext/closetag.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'editorconfig/editorconfig-vim'
 
 " Theme
 Bundle 'lsdr/monokai'
@@ -36,9 +37,9 @@ Plugin 'mattn/emmet-vim'
 
 " Generic
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-commentary'
-Plugin 'honza/vim-snippets'
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
@@ -159,7 +160,7 @@ let g:ctrlp_max_height=30
 let g:ctrlp_clear_cache_on_exit = 1
 
 " lets make sure we don't show these files
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*.,*/.DS_Store
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*.,*/.DS_Store,*/node_modules/*
 
 " remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -195,8 +196,14 @@ nmap <Leader>r :Reveal<CR>
 let g:ctrlp_max_files=0
 
 " Need a quick method to run grunt sync
-nmap <Leader>s :silent !grunt sync<CR>
+nmap <Leader>s :!grunt sync<CR>
 
 " Tagbar plugin
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
+
+" Dash keybinding
+nmap <silent> <leader>d <Plug>DashSearch
+
+" Ensure PHP autocompletion is available
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
