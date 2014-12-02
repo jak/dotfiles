@@ -47,6 +47,12 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'burnettk/vim-angular'
 Plugin 'matthewsimo/angular-vim-snippets'
 
+" CSS/LESS
+Plugin 'groenewege/vim-less'
+
+" Go
+Plugin 'fatih/vim-go'
+
 call vundle#end()
 filetype plugin indent on
 
