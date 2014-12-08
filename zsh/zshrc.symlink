@@ -42,3 +42,14 @@ unset config_files
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# Required for Java development
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home"
+
+# Needed for running a perl script
+PERL_MB_OPT="--install_base \"/Users/jak/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/jak/perl5"; export PERL_MM_OPT;
+export PERL5LIB=/Users/jak/perl5/lib/perl5/
+
+# Needed to run zsh in interactive mode in vim
+export ZDOTDIR=$HOME

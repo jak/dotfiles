@@ -163,7 +163,7 @@ let g:ctrlp_working_path_mode=0
 let g:ctrlp_max_height=30
 
 " keep ctrl-p cache between sessions
-let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_clear_cache_on_exit = 0
 
 " lets make sure we don't show these files
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*.,*/.DS_Store,*/node_modules/*
@@ -213,3 +213,7 @@ nmap <silent> <leader>d <Plug>DashSearch
 
 " Ensure PHP autocompletion is available
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+
+set ignorecase
+
+set shell=zsh\ -i
